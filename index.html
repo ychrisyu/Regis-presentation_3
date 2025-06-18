@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑞吉教育 | 幼小衔接家长发布会</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 保留原有所有CSS样式 */
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #B8860B;
+            --gold-light: #F5D76E;
+            --dark-gray: #2C2C2C;
+            --navy-blue: #0A2E5C;
+            --ivory: #F8F5F0;
+            --amber: #FF9A00;
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F5D76E 100%);
+            --gold-hover: linear-gradient(135deg, #C19D34 0%, #E5C35D 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--ivory);
+            color: var(--dark-gray);
+            font-family: 'Lato', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* 其他所有样式保持不变 */
+        
+        /* 新增样式 */
+        .dev-info-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--gold-primary);
+            border-radius: 15px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 14px;
+        }
+        
+        .dev-info-panel h3 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dev-info-panel h3 i {
+            margin-right: 10px;
+            color: var(--gold-primary);
+        }
+        
+        .dev-info-panel ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .dev-info-panel li {
+            margin-bottom: 8px;
+        }
+        
+        .dev-info-panel a {
+            color: var(--gold-primary);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .dev-info-panel a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>瑞吉教育家长发布会</h1>
+            <p class="subtitle">让过去所学真正"活"起来，为成长筑牢"向下扎根，向上生长"根基</p>
+            <div class="theme">幼小衔接暑期解决方案</div>
+        </header>
+        
+        <!-- 页面内容保持不变 -->
+        
+        <div class="conclusion">
+            <h2>50天很短，但足够让改变发生</h2>
+            <p>
+                这个暑假，瑞吉会成为孩子成长路上的"脚手架"——不是替您"盯着孩子吃饭睡觉"，而是用30年沉淀的教育智慧和这3年间对孩子的了解，帮孩子从"被照顾"变成"我能行"；不是用工具硬撑"假自律"，而是通过小班精品的精准陪伴，让习惯成自然、知识真正"活"起来。
+            </p>
+            <a href="#" class="cta-button" id="ctaBtn">立即预约暑期班名额</a>
+        </div>
+        
+        <footer>
+            <p>© 2025 瑞吉教育 - 专业幼小衔接教育机构 | 咨询电话：400-123-4567</p>
+            <p>地址：上海市浦东新区教育路88号瑞吉教育中心 | 官网：www.ruiji-edu.com</p>
+        </footer>
+    </div>
+    
+    <!-- 预约模态框 -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2><i class="fas fa-calendar-check"></i> 预约暑期班名额</h2>
+            <p style="margin-bottom: 30px; color: var(--dark-gray); font-size: 1.1rem;">填写以下信息，我们的顾问老师会尽快与您联系</p>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> 怎么称呼您？</label>
+                    <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-mobile-alt"></i> 您的手机号</label>
+                    <input type="tel" id="phone" name="phone" placeholder="请输入您的手机号码" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="childAge"><i class="fas fa-child"></i> 孩子年龄</label>
+                    <input type="number" id="childAge" name="childAge" placeholder="请输入孩子年龄" min="5" max="8" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">立即预约</button>
+            </form>
+            
+            <p style="margin-top: 30px; color: var(--dark-gray); font-size: 0.9rem; font-style: italic;">
+                <i class="fas fa-lock" style="color: var(--gold-primary); margin-right: 5px;"></i>
+                您的信息安全受保护，我们不会泄露给第三方
+            </p>
+        </div>
+    </div>
+
+    <!-- 开发者信息面板 -->
+    <div class="dev-info-panel">
+        <h3><i class="fas fa-info-circle"></i> 数据采集说明</h3>
+        <p>此页面已添加以下数据采集功能：</p>
+        <ul>
+            <li>用户预约信息提交到GitHub Gist</li>
+            <li>用户停留时间埋点采集</li>
+            <li>按钮点击事件采集</li>
+        </ul>
+        <p>查看数据：<br>
+        访问 <a href="#" id="gistLink">GitHub Gist链接</a></p>
+        <p>导出Excel：<br>
+        复制JSON数据到 <a href="https://www.convertjson.com/json-to-excel.htm" target="_blank">JSON转Excel工具</a></p>
+    </div>
+
+    <script>
+        // 预约按钮功能
+        const ctaBtn = document.getElementById('ctaBtn');
+        const modal = document.getElementById('bookingModal');
+        const closeModal = document.getElementById('closeModal');
+        const bookingForm = document.getElementById('bookingForm');
+        const gistLink = document.getElementById('gistLink');
+        
+        // 埋点数据
+        let pageEnterTime = new Date();
+        let totalStayTime = 0;
+        let isPageActive = true;
+        
+        // GitHub Gist配置
+        const GITHUB_TOKEN = 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为您的GitHub token
+        const GIST_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为您的Gist ID
+        const GIST_FILENAME = 'ruiji_registrations.json';
+        const GIST_URL = `https://gist.github.com/${GIST_ID}`;
+        
+        // 设置Gist链接
+        gistLink.href = GIST_URL;
+        gistLink.target = '_blank';
+        
+        ctaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // 埋点：记录按钮点击
+            sendTrackingEvent('CTA Button Clicked', '预约按钮点击');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // 点击模态框外部关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // 表单提交处理
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const childAge = document.getElementById('childAge').value;
+            
+            const formData = {
+                name,
+                phone,
+                childAge,
+                timestamp: new Date().toISOString(),
+                source: '瑞吉教育官网'
+            };
+            
+            try {
+                // 发送数据到GitHub Gist
+                await saveToGitHubGist(formData);
+                
+                alert('预约成功！我们的顾问老师会尽快与您联系。');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // 埋点：记录表单提交
+                sendTrackingEvent('Form Submitted', '预约表单提交');
+            } catch (error) {
+                console.error('保存数据失败:', error);
+                alert('预约失败，请稍后重试或直接致电400-123-4567');
+            }
+        });
+        
+        // 保存数据到GitHub Gist的函数
+        async function saveToGitHubGist(data) {
+            // 获取现有数据
+            const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'User-Agent': 'Ruiji-Education'
+                }
+            });
+            
+            const gist = await response.json();
+            const existingContent = gist.files[GIST_FILENAME].content;
+            let registrations = [];
+            
+            if (existingContent) {
+                registrations = JSON.parse(existingContent);
+            }
+            
+            // 添加新数据
+            registrations.push(data);
+            
+            // 更新Gist
+            const updateResponse = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Content-Type': 'application/json',
+                    'User-Agent': 'Ruiji-Education'
+                },
+                body: JSON.stringify({
+                    files: {
+                        [GIST_FILENAME]: {
+                            content: JSON.stringify(registrations, null, 2)
+                        }
+                    }
+                })
+            });
+            
+            if (!updateResponse.ok) {
+                throw new Error('更新Gist失败');
+            }
+        }
+        
+        // 埋点函数 - 发送事件
+        function sendTrackingEvent(eventName, eventDescription) {
+            const eventData = {
+                event: eventName,
+                description: eventDescription,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+                userAgent: navigator.userAgent,
+                referrer: document.referrer
+            };
+            
+            // 在实际应用中，这里应该发送到您的分析服务
+            console.log('Tracking Event:', eventData);
+            
+            // 添加到Gist中
+            saveTrackingEvent(eventData);
+        }
+        
+        // 保存埋点事件到GitHub Gist
+        async function saveTrackingEvent(eventData) {
+            const TRACKING_GIST_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为埋点专用的Gist ID
+            const TRACKING_FILENAME = 'ruiji_tracking.json';
+            
+            try {
+                // 获取现有数据
+                const response = await fetch(`https://api.github.com/gists/${TRACKING_GIST_ID}`, {
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'User-Agent': 'Ruiji-Education'
+                    }
+                });
+                
+                const gist = await response.json();
+                const existingContent = gist.files[TRACKING_FILENAME].content;
+                let trackingEvents = [];
+                
+                if (existingContent) {
+                    trackingEvents = JSON.parse(existingContent);
+                }
+                
+                // 添加新事件
+                trackingEvents.push(eventData);
+                
+                // 更新Gist
+                await fetch(`https://api.github.com/gists/${TRACKING_GIST_ID}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Content-Type': 'application/json',
+                        'User-Agent': 'Ruiji-Education'
+                    },
+                    body: JSON.stringify({
+                        files: {
+                            [TRACKING_FILENAME]: {
+                                content: JSON.stringify(trackingEvents, null, 2)
+                            }
+                        }
+                    })
+                });
+            } catch (error) {
+                console.error('保存埋点数据失败:', error);
+            }
+        }
+        
+        // 记录停留时间
+        function trackStayTime() {
+            if (isPageActive) {
+                const now = new Date();
+                const stayDuration = Math.floor((now - pageEnterTime) / 1000); // 秒
+                
+                if (stayDuration > 0) {
+                    // 每10秒发送一次停留时间更新
+                    sendTrackingEvent('Page Stay Time', `用户停留时间更新: ${stayDuration}秒`);
+                }
+            }
+        }
+        
+        // 页面可见性变化处理
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                // 页面可见
+                pageEnterTime = new Date();
+                isPageActive = true;
+            } else {
+                // 页面隐藏
+                const now = new Date();
+                totalStayTime += Math.floor((now - pageEnterTime) / 1000);
+                isPageActive = false;
+                
+                // 发送总停留时间
+                sendTrackingEvent('Page Hidden', `用户离开页面，总停留时间: ${totalStayTime}秒`);
+            }
+        });
+        
+        // 页面卸载前发送最终停留时间
+        window.addEventListener('beforeunload', () => {
+            const now = new Date();
+            totalStayTime += Math.floor((now - pageEnterTime) / 1000);
+            
+            sendTrackingEvent('Page Unload', `用户离开页面，总停留时间: ${totalStayTime}秒`);
+        });
+        
+        // 工具卡片点击效果
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+                
+                // 埋点：记录工具卡片点击
+                const toolName = this.querySelector('h3').textContent;
+                sendTrackingEvent('Tool Card Clicked', `工具卡片点击: ${toolName}`);
+            });
+        });
+        
+        // 页面加载时添加动画类
+        document.addEventListener('DOMContentLoaded', function() {
+            // 记录页面访问
+            sendTrackingEvent('Page Load', '页面加载完成');
+            
+            // 设置停留时间定时器
+            setInterval(trackStayTime, 10000); // 每10秒更新一次
+            
+            setTimeout(() => {
+                document.querySelector('.theme').classList.add('pulse');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
