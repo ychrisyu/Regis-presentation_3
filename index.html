@@ -3,423 +3,1021 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>瑞吉教育 | 幼小衔接家长发布会</title>
+    <title>瑞吉教育幼小衔接教学模式深度解析</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 保留原有所有CSS样式 */
         :root {
-            --gold-primary: #D4AF37;
-            --gold-secondary: #B8860B;
-            --gold-light: #F5D76E;
-            --dark-gray: #2C2C2C;
-            --navy-blue: #0A2E5C;
-            --ivory: #F8F5F0;
-            --amber: #FF9A00;
-            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F5D76E 100%);
-            --gold-hover: linear-gradient(135deg, #C19D34 0%, #E5C35D 100%);
+            --primary-light: #f0f8ff; /* 浅蓝背景 */
+            --primary-dark: #003366; /* 深蓝主色 */
+            --accent: #4a7b9d; /* 中等蓝色作为强调色 */
+            --secondary: #2c5a7d; /* 稍深蓝色 */
+            --light-gray: #e6f0f7; /* 浅灰蓝 */
+            --text-dark: #1a3c5a; /* 深蓝文本 */
+            --text-light: #5a7d9a; /* 浅蓝文本 */
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
         }
         
         body {
-            background: var(--ivory);
-            color: var(--dark-gray);
-            font-family: 'Lato', 'Microsoft YaHei', sans-serif;
-            line-height: 1.8;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #e6f2ff 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
             overflow-x: hidden;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 标题样式 */
+        .header {
+            text-align: center;
+            padding: 40px 0 20px;
             position: relative;
         }
         
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%);
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        /* 其他所有样式保持不变 */
-        
-        /* 新增样式 */
-        .dev-info-panel {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--gold-primary);
-            border-radius: 15px;
-            padding: 15px;
-            width: 300px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            font-size: 14px;
-        }
-        
-        .dev-info-panel h3 {
-            color: var(--navy-blue);
-            margin-bottom: 10px;
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-dark);
+            border-radius: 50%;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
+        }
+        
+        .logo i {
+            color: white;
+            font-size: 36px;
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        /* 阶梯式成长图 */
+        .ladder-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ladder-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .ladder-title::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent));
+        }
+        
+        .ladder-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+        
+        .ladder-container {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
         
-        .dev-info-panel h3 i {
-            margin-right: 10px;
-            color: var(--gold-primary);
+        .ladder-step {
+            display: flex;
+            width: 90%;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
         
-        .dev-info-panel ul {
-            padding-left: 20px;
-            margin: 10px 0;
+        .step-circle {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.15);
+            border: 3px solid var(--primary-dark);
+            z-index: 2;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
         }
         
-        .dev-info-panel li {
-            margin-bottom: 8px;
+        .step-circle:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(74, 123, 157, 0.25);
         }
         
-        .dev-info-panel a {
-            color: var(--gold-primary);
-            font-weight: bold;
-            text-decoration: none;
+        .step-circle i {
+            font-size: 36px;
+            color: var(--primary-dark);
         }
         
-        .dev-info-panel a:hover {
-            text-decoration: underline;
+        .step-content {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-left: 30px;
+            flex-grow: 1;
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.1);
+            border-left: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .step-title {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .step-desc {
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+        
+        .ladder-line {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            height: 80%;
+            width: 4px;
+            background: var(--accent);
+            z-index: 1;
+        }
+        
+        /* 内容卡片 */
+        .content-section {
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.15);
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .card-title i {
+            margin-right: 12px;
+            color: var(--accent);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(0, 51, 102, 0.1) 0%, rgba(0, 51, 102, 0.05) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .highlight-title {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .point-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .point-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .point-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 24px;
+            line-height: 1;
+        }
+        
+        /* 班级对比 */
+        .class-comparison {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .class-card {
+            flex: 1;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .class-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--accent);
+        }
+        
+        .class-title {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .class-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            border: 3px solid var(--primary-dark);
+        }
+        
+        .class-icon i {
+            font-size: 40px;
+            color: var(--primary-dark);
+        }
+        
+        .class-content {
+            font-size: 19px;
+            line-height: 1.8;
+            text-align: center;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .class-content strong {
+            color: var(--accent);
+        }
+        
+        /* 教学目标达成 */
+        .goal-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #002244 100%);
+            padding: 50px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .goal-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .goal-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .goal-step {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .goal-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .step-number {
+            font-size: 60px;
+            color: var(--light-gray);
+            margin-bottom: 15px;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+        
+        .step-text {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .step-detail {
+            font-size: 18px;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+        
+        /* 新添加的部分：语文、数学、英语 */
+        .subject-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.1);
+        }
+        
+        .subject-title {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .subject-subtitle {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .subject-content {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .subject-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .subject-table th {
+            background-color: var(--primary-dark);
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .subject-table td {
+            padding: 14px 16px;
+            border: 1px solid #e0e7ff;
+            text-align: center;
+            font-size: 17px;
+        }
+        
+        .subject-table tr:nth-child(even) {
+            background-color: #f5f9ff;
+        }
+        
+        .subject-table tr:hover {
+            background-color: #e6f0f7;
+        }
+        
+        .subject-images {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .subject-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .subject-image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.2);
+        }
+        
+        .subject-image img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .subject-image img {
+                max-height: 180px;
+            }
+        }
+        
+        .image-caption {
+            padding: 15px;
+            background: white;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .image-caption {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .class-comparison {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ladder-container {
+                height: auto;
+            }
+            
+            .ladder-step {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+            
+            .step-content {
+                margin-left: 0;
+                margin-top: 20px;
+                width: 100%;
+            }
+            
+            .ladder-line {
+                display: none;
+            }
+            
+            .goal-step:not(:last-child)::after {
+                content: "";
+                position: relative;
+                display: block;
+                text-align: center;
+                margin: 10px auto;
+                transform: rotate(90deg);
+                top: 0;
+                right: 0;
+            }
+            
+            /* 响应式调整新部分 */
+            .subject-images {
+                flex-direction: column;
+            }
+            
+            .subject-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-circle {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .step-circle i {
+                font-size: 28px;
+            }
+            
+            .goal-step {
+                min-width: 100%;
+            }
+            
+            .subject-title {
+                font-size: 26px;
+            }
+            
+            .subject-subtitle {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- 头部标题 -->
+        <header class="header">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
             </div>
-            <h1>瑞吉教育家长发布会</h1>
-            <p class="subtitle">让过去所学真正"活"起来，为成长筑牢"向下扎根，向上生长"根基</p>
-            <div class="theme">幼小衔接暑期解决方案</div>
+            <h1 class="title">【幼小衔接】课程设计与教学模式深度解析</h1>
+            <p class="subtitle">阶梯式成长体系 · 个性化教学方案 · 能力进阶培养</p>
         </header>
         
-        <!-- 页面内容保持不变 -->
+
+        <!--个性化：分层教学 -->
+           <section class="ladder-section">
+            <h2 class="ladder-title">个性化：分层教学</h2>
+            <div class="ladder-container">
+            
+            <div class="class-comparison">
+                <div class="class-card">
+                    <h3 class="class-title">基础好，吃不饱</h3>
+                    <div class="class-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="class-content">
+                        <p>知识深度领先</p>
+                    </div>
+                </div>
+      
+                <div class="class-card">
+                    <h3 class="class-title">有基础，跟不上</h3>
+                    <div class="class-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="class-content">
+                      <p>已掌握基础核心知识</p>
+                        <p>（拼音/运算/拼写）</p>
+                    </div>
+            </div>
+            </div>
+
+  <div style="margin: 20px 0 10px; text-align: center;">
+    <h2 class="class-title" style="margin-bottom: 5px;">“知识巩固”→“灵活运用”→“思维框架”</h2>
+    <p style="font-size: 16px; color: var(--text-light);">知识常学常新，避免无效重复</p>
+  </div>
+   <div class="ladder-container">
+        </section>
+ 
+  <!-- 教学模式两大支柱 -->
+        <section class="content-section">
+            <h2 class="section-title">教学模式两大支柱</h2>
+            
+          
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-users"></i> 小班教学：个性化关注</h3>
+                    <div class="point-list">
+                        <li>确保每位孩子获得专属学习指导</li>
+                        <li>师生比优化，关注个体发展需求</li>
+                        <li>定期一对一学习评估与反馈</li>
+                        <li>定制化学习路径设计</li>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-layer-group"></i> 分层教学：能力适配</h3>
+                    <div class="point-list">
+                        <li>依据学习能力动态评估，定制阶梯课程</li>
+                        <li>示例：英语强者进阶绘本精读</li>
+                        <li>示例：数学优者聚焦生活应用题</li>
+                        <li>弹性分组，适时调整教学进度</li>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶梯式成长图 -->
+        <section class="ladder-section">
+            <h2 class="ladder-title">阶梯式能力成长模型</h2>
+            <div class="ladder-container">
+                <div class="ladder-line"></div>
+                
+                <div class="ladder-step">
+                    <div class="step-circle">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">基础能力构建</h3>
+                        <p class="step-desc">个性化评估，巩固知识点，建立学科知识框架</p>
+                    </div>
+                </div>
+                
+                <div class="ladder-step">
+                    <div class="step-circle">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">学科知识深化</h3>
+                        <p class="step-desc">分层教学，针对优势学科进行深化拓展，建立学科自信</p>
+                    </div>
+                </div>
+                
+                <div class="ladder-step">
+                    <div class="step-circle">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">跨学科融合</h3>
+                        <p class="step-desc">打破学科边界，建立知识联系，培养综合应用能力</p>
+                    </div>
+                </div>
+                
+                <div class="ladder-step">
+                    <div class="step-circle">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">灵活应用、思维提升</h3>
+                        <p class="step-desc">将知识迁移到真实场景，培养问题分析与解决能力，实现举一反三</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <div class="conclusion">
-            <h2>50天很短，但足够让改变发生</h2>
-            <p>
-                这个暑假，瑞吉会成为孩子成长路上的"脚手架"——不是替您"盯着孩子吃饭睡觉"，而是用30年沉淀的教育智慧和这3年间对孩子的了解，帮孩子从"被照顾"变成"我能行"；不是用工具硬撑"假自律"，而是通过小班精品的精准陪伴，让习惯成自然、知识真正"活"起来。
-            </p>
-            <a href="#" class="cta-button" id="ctaBtn">立即预约暑期班名额</a>
-        </div>
+   
         
-        <footer>
-            <p>© 2025 瑞吉教育 - 专业幼小衔接教育机构 | 咨询电话：400-123-4567</p>
-            <p>地址：上海市浦东新区教育路88号瑞吉教育中心 | 官网：www.ruiji-edu.com</p>
-        </footer>
+
+        <!-- 核心规划:学科重点强化方向 -->
+        <section class="content-section">
+            <h2 class="section-title"> 核心规划：学科重点强化方向</h2>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-language"></i> 语文：拓展阅读夯实基础</h3>
+                    <div class="point-list">
+                        <li>【阅读】分级阅读与兴趣启蒙</li>
+                        <li>【认字】依托阅读积累高频生字</li>
+                         <li>【拼音】系统拼音巩固</li>
+                        <li>【书写】规范笔画笔顺与描红训练</li>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-globe"></i> 英语：听说读写四维提升</h3>
+                    <div class="point-list">
+                        <li>【RAZ】分级绘本提升阅读理解
+                        <li>【自然拼读】巩固规则，掌握高频词汇</li>
+                        <li>【情景对话】强化对话应用</li>
+                        <li>【阅读理解】短句到复杂句的阶梯训练</li>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-calculator"></i> 数学：逻辑与应用并重</h3>
+                    <div class="point-list">
+                        <li>【思维】强化数感与逻辑训练</li>
+                        <li>【运用】设计生活场景应用题</li>
+                        <li>【跨学科】融合多学科培养综合解决问题能力</li>
+                        <li>【高阶】空间思维与几何概念启蒙</li>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 教学目标 -->
+        <section class="goal-section">
+            <h2 class="goal-title">教学目标达成</h2>
+            <h3 style="font-size: 28px; margin-bottom: 40px;">分层教学+学科融合，实现基础扎实、能力迁移、自信入学</h3>
+            
+            <div class="goal-steps">
+                <div class="goal-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">基础扎实</div>
+                    <div class="step-detail">建立坚实的学科基础<br>掌握核心学习技能</div>
+                </div>
+                
+                <div class="goal-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">能力迁移</div>
+                    <div class="step-detail">知识应用到新场景<br>实现举一反三能力</div>
+                </div>
+                
+                <div class="goal-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">自信入学</div>
+                    <div class="step-detail">建立学习自信心<br>顺利过渡到小学阶段</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 新添加部分：语文 -->
+        <section class="subject-section">
+            <h2 class="subject-title">语文 —— 以名著、整本书阅读，强化"字-词-句-段"的阅读关联</h2>
+            <p class="subject-subtitle">每周一本共16整本罗湖区小学必读书目、7首必读古诗</p>
+            <p class="subject-content">阅读量3500+字，认读90+字</p>
+            
+            <table class="subject-table">
+                <thead>
+                    <tr>
+                        <th>讲次</th>
+                        <th>阅读书单</th>
+                        <th>拼音</th>
+                        <th>写字</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>W1</td>
+                        <td>《逃家小兔》《爱心树》《春晓》（唐·孟浩然）</td>
+                        <td>8个声母</td>
+                        <td>基础笔画——横、竖、撇、捺</td>
+                    </tr>
+                    <tr>
+                        <td>W2</td>
+                        <td>《有个性的羊》《温情的狮子》《静夜思》（唐·李白）</td>
+                        <td>6个声母</td>
+                        <td>基础笔画——点、提、钩（竖钩、弯钩）</td>
+                    </tr>
+                    <tr>
+                        <td>W3</td>
+                        <td>《勇气》《鳄鱼怕怕、牙医怕怕》《风》（唐·李峤）</td>
+                        <td>9个声母</td>
+                        <td>复合笔画——横折、横撇、撇折、撇点</td>
+                    </tr>
+                    <tr>
+                        <td>W4</td>
+                        <td>《果实是种子的旅行箱》《活了100万次的猫》《池上》（唐·白居易）</td>
+                        <td>6个单韵母</td>
+                        <td>复合笔画——竖弯、竖弯钩</td>
+                    </tr>
+                    <tr>
+                        <td>W5</td>
+                        <td>《虎斑猫和黑猫》《鸭子骑车记》《画》（唐·王维）</td>
+                        <td>8个复韵母</td>
+                        <td>笔顺规则——横折弯钩、横斜钩</td>
+                    </tr>
+                    <tr>
+                        <td>W6</td>
+                        <td>《同一个月亮》《一粒种子的旅行》《梅花》（宋·王安石）</td>
+                        <td>9个前鼻韵母+后鼻韵母</td>
+                        <td>笔顺规则——先横后竖、先撇后捺</td>
+                    </tr>
+                    <tr>
+                        <td>W7</td>
+                        <td>《落叶跳舞》《爷爷一定有办法》《小池》（宋·杨万里）</td>
+                        <td>8个整体认读音节</td>
+                        <td>笔顺规则——先横后竖、先撇后捺</td>
+                    </tr>
+                    <tr>
+                        <td>W8</td>
+                        <td>《我不要被吃掉》《晚安大猩猩》《赠汪伦》（唐·李白）</td>
+                        <td>8个整体认读音节</td>
+                        <td>综合应用——笔顺规则巩固与书写实践</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 新添加部分：数学 -->
+        <section class="subject-section">
+            <h2 class="subject-title">数学 —— 在真实情境中培养理科思维，灵活运用解决真实问题</h2>
+            
+            <table class="subject-table">
+                <thead>
+                    <tr>
+                        <th>讲次</th>
+                        <th>课程标题</th>
+                        <th>课程内容</th>
+                        <th>培养能力</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>W1</td>
+                        <td>填图游戏</td>
+                        <td>多角度观察所给图形，结合图形特征寻找突破口</td>
+                        <td>数感估算能力</td>
+                    </tr>
+                    <tr>
+                        <td>W2</td>
+                        <td>数独游戏</td>
+                        <td>学习四宫数独、六宫数独以及简单的变形数独；掌握填写数独的方法</td>
+                        <td>基本运算能力和数感估算能力</td>
+                    </tr>
+                    <tr>
+                        <td>W3</td>
+                        <td>数独游戏</td>
+                        <td>学习六宫数独、六宫数独以及简单的变形数独；掌握填写数独的方法</td>
+                        <td>基本运算能力和数感估算能力</td>
+                    </tr>
+                    <tr>
+                        <td>W4</td>
+                        <td>加减法竖式</td>
+                        <td>学习解决加法竖式、减法竖式以及加减法混合竖式的常用方法</td>
+                        <td>数感估算能力</td>
+                    </tr>
+                    <tr>
+                        <td>W5</td>
+                        <td>叠加覆盖问题</td>
+                        <td>理解叠加与覆盖的含义；木板重叠问题的解决方法</td>
+                        <td>概括总结能力</td>
+                    </tr>
+                    <tr>
+                        <td>W6</td>
+                        <td>神秘代码</td>
+                        <td>掌握等差数列、自然数列等数列规律，并根据规律填数</td>
+                        <td>逻辑分析能力</td>
+                    </tr>
+                    <tr>
+                        <td>W7</td>
+                        <td>有趣的立体图形</td>
+                        <td>认识各种立体图形，掌握正方体的11种展开图，并学会找正方体的相对面</td>
+                        <td>空间想象能力</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- 新添加部分：英语 -->
+        <section class="subject-section">
+            <h2 class="subject-title">英语 —— 通过跨学科内容激发主动开口能力，培养"英语+世界"认知</h2>
+            <p class="subject-subtitle">真实场景应用 + 跨学科融合 + 趣味互动教学</p>
+            
+            <div class="subject-images">
+                <div class="subject-image">
+                    <img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="英语情景对话">
+                    <div class="image-caption">情景对话训练</div>
+                </div>
+                <div class="subject-image">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="英语绘本阅读">
+                    <div class="image-caption">绘本阅读教学</div>
+                </div>
+                <div class="subject-image">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="跨学科英语">
+                    <div class="image-caption">跨学科英语学习</div>
+                </div>
+            </div>
+            
+            <div class="highlight" style="margin-top: 40px;">
+                <h3 class="highlight-title">教学特色</h3>
+                <div class="point-list">
+                    <li>真实生活场景模拟，强化口语表达能力</li>
+                    <li>跨学科主题学习，将英语与科学、艺术等学科结合</li>
+                    <li>分级阅读系统，根据学生水平定制阅读计划</li>
+                    <li>游戏化学习方式，激发学习兴趣和参与度</li>
+                </div>
+            </div>
+        </section>
     </div>
     
-    <!-- 预约模态框 -->
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h2><i class="fas fa-calendar-check"></i> 预约暑期班名额</h2>
-            <p style="margin-bottom: 30px; color: var(--dark-gray); font-size: 1.1rem;">填写以下信息，我们的顾问老师会尽快与您联系</p>
-            
-            <form id="bookingForm">
-                <div class="form-group">
-                    <label for="name"><i class="fas fa-user"></i> 怎么称呼您？</label>
-                    <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone"><i class="fas fa-mobile-alt"></i> 您的手机号</label>
-                    <input type="tel" id="phone" name="phone" placeholder="请输入您的手机号码" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="childAge"><i class="fas fa-child"></i> 孩子年龄</label>
-                    <input type="number" id="childAge" name="childAge" placeholder="请输入孩子年龄" min="5" max="8" required>
-                </div>
-                
-                <button type="submit" class="submit-btn">立即预约</button>
-            </form>
-            
-            <p style="margin-top: 30px; color: var(--dark-gray); font-size: 0.9rem; font-style: italic;">
-                <i class="fas fa-lock" style="color: var(--gold-primary); margin-right: 5px;"></i>
-                您的信息安全受保护，我们不会泄露给第三方
-            </p>
-        </div>
-    </div>
-
-    <!-- 开发者信息面板 -->
-    <div class="dev-info-panel">
-        <h3><i class="fas fa-info-circle"></i> 数据采集说明</h3>
-        <p>此页面已添加以下数据采集功能：</p>
-        <ul>
-            <li>用户预约信息提交到GitHub Gist</li>
-            <li>用户停留时间埋点采集</li>
-            <li>按钮点击事件采集</li>
-        </ul>
-        <p>查看数据：<br>
-        访问 <a href="#" id="gistLink">GitHub Gist链接</a></p>
-        <p>导出Excel：<br>
-        复制JSON数据到 <a href="https://www.convertjson.com/json-to-excel.htm" target="_blank">JSON转Excel工具</a></p>
-    </div>
-
     <script>
-        // 预约按钮功能
-        const ctaBtn = document.getElementById('ctaBtn');
-        const modal = document.getElementById('bookingModal');
-        const closeModal = document.getElementById('closeModal');
-        const bookingForm = document.getElementById('bookingForm');
-        const gistLink = document.getElementById('gistLink');
-        
-        // 埋点数据
-        let pageEnterTime = new Date();
-        let totalStayTime = 0;
-        let isPageActive = true;
-        
-        // GitHub Gist配置
-        const GITHUB_TOKEN = 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为您的GitHub token
-        const GIST_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为您的Gist ID
-        const GIST_FILENAME = 'ruiji_registrations.json';
-        const GIST_URL = `https://gist.github.com/${GIST_ID}`;
-        
-        // 设置Gist链接
-        gistLink.href = GIST_URL;
-        gistLink.target = '_blank';
-        
-        ctaBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            
-            // 埋点：记录按钮点击
-            sendTrackingEvent('CTA Button Clicked', '预约按钮点击');
-        });
-        
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // 点击模态框外部关闭
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // 表单提交处理
-        bookingForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const childAge = document.getElementById('childAge').value;
-            
-            const formData = {
-                name,
-                phone,
-                childAge,
-                timestamp: new Date().toISOString(),
-                source: '瑞吉教育官网'
-            };
-            
-            try {
-                // 发送数据到GitHub Gist
-                await saveToGitHubGist(formData);
-                
-                alert('预约成功！我们的顾问老师会尽快与您联系。');
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                // 埋点：记录表单提交
-                sendTrackingEvent('Form Submitted', '预约表单提交');
-            } catch (error) {
-                console.error('保存数据失败:', error);
-                alert('预约失败，请稍后重试或直接致电400-123-4567');
-            }
-        });
-        
-        // 保存数据到GitHub Gist的函数
-        async function saveToGitHubGist(data) {
-            // 获取现有数据
-            const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'User-Agent': 'Ruiji-Education'
-                }
-            });
-            
-            const gist = await response.json();
-            const existingContent = gist.files[GIST_FILENAME].content;
-            let registrations = [];
-            
-            if (existingContent) {
-                registrations = JSON.parse(existingContent);
-            }
-            
-            // 添加新数据
-            registrations.push(data);
-            
-            // 更新Gist
-            const updateResponse = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-                method: 'PATCH',
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Content-Type': 'application/json',
-                    'User-Agent': 'Ruiji-Education'
-                },
-                body: JSON.stringify({
-                    files: {
-                        [GIST_FILENAME]: {
-                            content: JSON.stringify(registrations, null, 2)
-                        }
-                    }
-                })
-            });
-            
-            if (!updateResponse.ok) {
-                throw new Error('更新Gist失败');
-            }
-        }
-        
-        // 埋点函数 - 发送事件
-        function sendTrackingEvent(eventName, eventDescription) {
-            const eventData = {
-                event: eventName,
-                description: eventDescription,
-                timestamp: new Date().toISOString(),
-                url: window.location.href,
-                userAgent: navigator.userAgent,
-                referrer: document.referrer
-            };
-            
-            // 在实际应用中，这里应该发送到您的分析服务
-            console.log('Tracking Event:', eventData);
-            
-            // 添加到Gist中
-            saveTrackingEvent(eventData);
-        }
-        
-        // 保存埋点事件到GitHub Gist
-        async function saveTrackingEvent(eventData) {
-            const TRACKING_GIST_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // 替换为埋点专用的Gist ID
-            const TRACKING_FILENAME = 'ruiji_tracking.json';
-            
-            try {
-                // 获取现有数据
-                const response = await fetch(`https://api.github.com/gists/${TRACKING_GIST_ID}`, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'User-Agent': 'Ruiji-Education'
-                    }
-                });
-                
-                const gist = await response.json();
-                const existingContent = gist.files[TRACKING_FILENAME].content;
-                let trackingEvents = [];
-                
-                if (existingContent) {
-                    trackingEvents = JSON.parse(existingContent);
-                }
-                
-                // 添加新事件
-                trackingEvents.push(eventData);
-                
-                // 更新Gist
-                await fetch(`https://api.github.com/gists/${TRACKING_GIST_ID}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Content-Type': 'application/json',
-                        'User-Agent': 'Ruiji-Education'
-                    },
-                    body: JSON.stringify({
-                        files: {
-                            [TRACKING_FILENAME]: {
-                                content: JSON.stringify(trackingEvents, null, 2)
-                            }
-                        }
-                    })
-                });
-            } catch (error) {
-                console.error('保存埋点数据失败:', error);
-            }
-        }
-        
-        // 记录停留时间
-        function trackStayTime() {
-            if (isPageActive) {
-                const now = new Date();
-                const stayDuration = Math.floor((now - pageEnterTime) / 1000); // 秒
-                
-                if (stayDuration > 0) {
-                    // 每10秒发送一次停留时间更新
-                    sendTrackingEvent('Page Stay Time', `用户停留时间更新: ${stayDuration}秒`);
-                }
-            }
-        }
-        
-        // 页面可见性变化处理
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                // 页面可见
-                pageEnterTime = new Date();
-                isPageActive = true;
-            } else {
-                // 页面隐藏
-                const now = new Date();
-                totalStayTime += Math.floor((now - pageEnterTime) / 1000);
-                isPageActive = false;
-                
-                // 发送总停留时间
-                sendTrackingEvent('Page Hidden', `用户离开页面，总停留时间: ${totalStayTime}秒`);
-            }
-        });
-        
-        // 页面卸载前发送最终停留时间
-        window.addEventListener('beforeunload', () => {
-            const now = new Date();
-            totalStayTime += Math.floor((now - pageEnterTime) / 1000);
-            
-            sendTrackingEvent('Page Unload', `用户离开页面，总停留时间: ${totalStayTime}秒`);
-        });
-        
-        // 工具卡片点击效果
-        document.querySelectorAll('.tool-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.9)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 300);
-                
-                // 埋点：记录工具卡片点击
-                const toolName = this.querySelector('h3').textContent;
-                sendTrackingEvent('Tool Card Clicked', `工具卡片点击: ${toolName}`);
-            });
-        });
-        
-        // 页面加载时添加动画类
+        // 简单的动画效果
         document.addEventListener('DOMContentLoaded', function() {
-            // 记录页面访问
-            sendTrackingEvent('Page Load', '页面加载完成');
+            const cards = document.querySelectorAll('.card, .class-card, .ladder-step');
             
-            // 设置停留时间定时器
-            setInterval(trackStayTime, 10000); // 每10秒更新一次
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300);
+            });
             
-            setTimeout(() => {
-                document.querySelector('.theme').classList.add('pulse');
-            }, 3000);
+            // 阶梯点动画
+            const steps = document.querySelectorAll('.step-circle');
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                
+                setTimeout(() => {
+                    step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    step.style.opacity = '1';
+                }, 500 + index * 200);
+            });
+            
+            // 新添加部分的动画
+            const subjectSections = document.querySelectorAll('.subject-section');
+            subjectSections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 800 + index * 300);
+            });
         });
     </script>
 </body>
