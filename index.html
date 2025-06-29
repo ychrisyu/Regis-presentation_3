@@ -21,6 +21,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Microsoft YaHei', sans-serif;
+            font-size: 15px;
         }
         
         body {
@@ -29,6 +30,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-family: 'Microsoft YaHei', sans-serif;
+            font-size: 15px;
         }
         
         .container {
@@ -64,7 +66,7 @@
         }
         
         .title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 700;
             color: var(--primary-dark);
             margin-bottom: 20px;
@@ -85,7 +87,7 @@
         }
         
         .subtitle {
-            font-size: 22px;
+            font-size: 18px;
             color: var(--secondary);
             max-width: 800px;
             margin: 20px auto 0;
@@ -105,7 +107,7 @@
         
         .ladder-title {
             text-align: center;
-            font-size: 36px;
+            font-size: 30px;
             color: var(--primary-dark);
             margin-bottom: 20px;
             position: relative;
@@ -188,14 +190,14 @@
         }
         
         .step-title {
-            font-size: 22px;
+            font-size: 18px;
             color: var(--primary-dark);
             margin-bottom: 10px;
             font-weight: 700;
         }
         
         .step-desc {
-            font-size: 18px;
+            font-size: 15px;
             color: var(--text-dark);
         }
         
@@ -215,7 +217,7 @@
         }
         
         .section-title {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--primary-dark);
             margin-bottom: 30px;
             padding-bottom: 15px;
@@ -258,7 +260,7 @@
         }
         
         .card-title {
-            font-size: 24px;
+            font-size: 20px;
             color: var(--primary-dark);
             margin-bottom: 20px;
             display: flex;
@@ -476,16 +478,16 @@
             background-color: var(--primary-dark);
             color: white;
             font-weight: 600;
-            padding: 16px;
+            padding: 12px;
             text-align: center;
-            font-size: 18px;
+            font-size: 15px;
         }
         
         .subject-table td {
-            padding: 14px 16px;
+            padding: 10px 12px;
             border: 1px solid #e0e7ff;
             text-align: center;
-            font-size: 17px;
+            font-size: 14px;
         }
         
         .subject-table tr:nth-child(even) {
@@ -501,6 +503,7 @@
             justify-content: space-between;
             gap: 30px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
         
         .subject-image {
@@ -520,13 +523,31 @@
             width: 100%;
             height: auto;
             max-height: 250px;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
         }
 
         @media (max-width: 600px) {
+            .subject-image {
+                flex: 0 0 100%;
+                margin-bottom: 20px;
+            }
             .subject-image img {
                 max-height: 180px;
+                object-fit: contain;
+            }
+            .subject-section {
+                padding: 20px;
+            }
+            .subject-title, .subject-subtitle {
+                word-break: break-word;
+            }
+            .subject-table {
+                font-size: 14px;
+            }
+            .subject-table th, 
+            .subject-table td {
+                padding: 8px 10px;
             }
         }
         
@@ -550,6 +571,10 @@
             .class-comparison {
                 flex-direction: column;
                 align-items: center;
+                gap: 30px;
+            }
+            .subject-section {
+                margin: 40px 0;
             }
             
             .ladder-container {
@@ -596,11 +621,15 @@
         
         @media (max-width: 600px) {
             .title {
-                font-size: 32px;
+                font-size: 28px;
+                margin-top: 30px;
+            }
+            .content-section, .ladder-section {
+                margin: 30px 0;
             }
             
             .section-title {
-                font-size: 26px;
+                font-size: 22px;
             }
             
             .cards-container {
@@ -621,11 +650,11 @@
             }
             
             .subject-title {
-                font-size: 26px;
+                font-size: 22px;
             }
             
             .subject-subtitle {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
     </style>
@@ -638,9 +667,10 @@
                 <i class="fas fa-graduation-cap"></i>
             </div>
             <h1 class="title">【幼小衔接】课程设计与教学模式深度解析</h1>
-            <p class="subtitle">阶梯式成长体系 · 个性化教学方案 · 能力进阶培养</p>
+            <p class="subtitle">阶梯式教学目标 · 个性化分层教学 · 能力进阶培养</p>
         </header>
         
+
 
         <!--个性化：分层教学 -->
            <section class="ladder-section">
@@ -705,12 +735,51 @@
             </div>
         </section>
 
+        
+   
+        
+
+        <!-- 核心规划:学科重点强化方向 -->
+        <section class="content-section">
+            <h2 class="section-title"> 核心规划：学科重点强化方向</h2>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-language"></i> 语文：拓展阅读夯实基础</h3>
+                    <div class="point-list">
+                        <li>【阅读】分级阅读与兴趣启蒙</li>
+                        <li>【认字】依托阅读积累高频生字</li>
+                         <li>【拼音】系统拼音巩固</li>
+                        <li>【书写】规范笔画笔顺与描红训练</li>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-globe"></i> 英语：听说读写四维提升</h3>
+                    <div class="point-list">
+                        <li>【RAZ】分级绘本提升阅读理解
+                        <li>【自然拼读】巩固规则，掌握高频词汇</li>
+                        <li>【情景对话】强化对话应用</li>
+                        <li>【阅读理解】短句到复杂句的阶梯训练</li>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-calculator"></i> 数学：逻辑与应用并重</h3>
+                    <div class="point-list">
+                        <li>【思维】强化数感与逻辑训练</li>
+                        <li>【运用】设计生活场景应用题</li>
+                        <li>【跨学科】融合多学科培养问题解决能力</li>
+                        <li>【高阶】空间思维与几何概念启蒙</li>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 阶梯式成长图 -->
         <section class="ladder-section">
             <h2 class="ladder-title">阶梯式能力成长模型</h2>
             <div class="ladder-container">
-                <div class="ladder-line"></div>
-                
                 <div class="ladder-step">
                     <div class="step-circle">
                         <i class="fas fa-seedling"></i>
@@ -753,46 +822,6 @@
             </div>
         </section>
         
-   
-        
-
-        <!-- 核心规划:学科重点强化方向 -->
-        <section class="content-section">
-            <h2 class="section-title"> 核心规划：学科重点强化方向</h2>
-            
-            <div class="cards-container">
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-language"></i> 语文：拓展阅读夯实基础</h3>
-                    <div class="point-list">
-                        <li>【阅读】分级阅读与兴趣启蒙</li>
-                        <li>【认字】依托阅读积累高频生字</li>
-                         <li>【拼音】系统拼音巩固</li>
-                        <li>【书写】规范笔画笔顺与描红训练</li>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-globe"></i> 英语：听说读写四维提升</h3>
-                    <div class="point-list">
-                        <li>【RAZ】分级绘本提升阅读理解
-                        <li>【自然拼读】巩固规则，掌握高频词汇</li>
-                        <li>【情景对话】强化对话应用</li>
-                        <li>【阅读理解】短句到复杂句的阶梯训练</li>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-calculator"></i> 数学：逻辑与应用并重</h3>
-                    <div class="point-list">
-                        <li>【思维】强化数感与逻辑训练</li>
-                        <li>【运用】设计生活场景应用题</li>
-                        <li>【跨学科】融合多学科培养综合解决问题能力</li>
-                        <li>【高阶】空间思维与几何概念启蒙</li>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <!-- 教学目标 -->
         <section class="goal-section">
             <h2 class="goal-title">教学目标达成</h2>
@@ -821,7 +850,8 @@
         
         <!-- 新添加部分：语文 -->
         <section class="subject-section">
-            <h2 class="subject-title">语文 —— 以名著、整本书阅读，强化"字-词-句-段"的阅读关联</h2>
+            <h2 class="section-title" style="margin-bottom: 10px;">幼小衔接暑假班（7月14日-8月29日）</h2>
+            <h2 class="subject-title">语文 — 拓展阅读，强化"字-词-句-段"的关联</h2>
             <p class="subject-subtitle">每周一本共16整本罗湖区小学必读书目、7首必读古诗</p>
             <p class="subject-content">阅读量3500+字，认读90+字</p>
             
@@ -889,7 +919,7 @@
         
         <!-- 新添加部分：数学 -->
         <section class="subject-section">
-            <h2 class="subject-title">数学 —— 在真实情境中培养理科思维，灵活运用解决真实问题</h2>
+            <h2 class="subject-title">数学 — 真实情境中培养理科思维，灵活运用解决问题</h2>
             
             <table class="subject-table">
                 <thead>
@@ -949,7 +979,7 @@
         
         <!-- 新添加部分：英语 -->
         <section class="subject-section">
-            <h2 class="subject-title">英语 —— 通过跨学科内容激发主动开口能力，培养"英语+世界"认知</h2>
+            <h2 class="subject-title">英语 — 跨学科内容激发主动开口，培养"英语+世界"认知</h2>
             <p class="subject-subtitle">真实场景应用 + 跨学科融合 + 趣味互动教学</p>
             
             <div class="subject-images">
